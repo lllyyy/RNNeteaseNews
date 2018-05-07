@@ -1,0 +1,63 @@
+{
+  "name": "RNExample",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "testNode": "babel TestJS.js --out-file Test.js && node Test.js && rm Test.js",
+    "start": "node node_modules/react-native/local-cli/cli.js start",
+    "adb-reverse": "adb reverse tcp:8081 tcp:8081",
+    "run-ios": "react-native run-ios",
+    "run-ios iPhoneX": "react-native run-ios --simulator \"iPhone X\"",
+    "run-android": "react-native run-android",
+    "run-android-release": "react-native run-android --variant=release",
+    "run-android-staging": "react-native bundle --platform android --dev false --entry-file index.js --bundle-output android/app/src/main/assets/index.android.bundle --assets-dest android/app/src/main/res/ && react-native run-android --variant=staging",
+    "build-android-release": "cd android && ./gradlew assembleRelease",
+    "build-android-staging": "react-native bundle --platform android --dev false --entry-file index.js --bundle-output android/app/src/main/assets/index.android.bundle --assets-dest android/app/src/main/res/ && cd android && ./gradlew assembleStaging",
+    "android-bundling": "react-native bundle --platform android --dev false --entry-file index.js --bundle-output android/app/src/main/assets/index.android.bundle --assets-dest android/app/src/main/res/",
+    "code-push-android-k": "code-push deployment ls example-android -k",
+    "code-push-ios-k": "code-push deployment ls example-ios -k",
+    "code-push-android-staging": "code-push release-react example-android android --t 0.0.1 --des “我是更新信息",
+    "code-push-ios-staging": "code-push release-react example-ios ios --t 0.0.1 --des “我是更新信息",
+    "code-push-android-release": "code-push release-react example-android android --t 0.0.1 --d Production --des “我是更新信息",
+    "code-push-ios-release": "code-push release-react example-ios ios --t 0.0.1 --d Production --des “我是更新信息",
+    "test": "jest"
+  },
+  "dependencies": {
+    "hoist-non-react-statics": "^2.5.0",
+    "jcore-react-native": "^1.2.5",
+    "jpush-react-native": "^2.2.1",
+    "mobx": "^4.1.1",
+    "mobx-persist": "^0.4.1",
+    "mobx-react": "^5.0.0",
+    "prop-types": "latest",
+    "react": "16.3.1",
+    "react-native": "0.55.3",
+    "react-native-addcarview": "^1.0.1",
+    "react-native-app-upgrade": "https://github.com/puti94/react-native-app-upgrade",
+    "react-native-code-push": "^5.3.2",
+    "react-native-device-info": "^0.17.3",
+    "react-native-http-cache": "https://github.com/puti94/react-native-http-cache",
+    "react-native-permissions": "^1.1.1",
+    "react-native-puti-pay": "^1.0.2",
+    "react-native-section-list-get-item-layout": "^2.2.2",
+    "react-native-shadow-view": "^0.0.1",
+    "react-native-smart-barcode": "https://github.com/puti94/react-native-smart-barcode",
+    "react-native-spinkit": "^1.1.1",
+    "react-native-splash-screen": "^3.0.6",
+    "react-native-svg": "^6.3.1",
+    "react-navigation": "^1.5.11",
+    "react-navigation-easy-helper": "^1.2.0",
+    "teaset": "^0.5.6"
+  },
+  "devDependencies": {
+    "babel-jest": "22.2.2",
+    "babel-plugin-transform-decorators-legacy": "^1.3.4",
+    "babel-preset-react-native": "4.0.0",
+    "babel-preset-react-native-stage-0": "^1.0.1",
+    "jest": "22.2.2",
+    "react-test-renderer": "16.2.0"
+  },
+  "jest": {
+    "preset": "react-native"
+  }
+}

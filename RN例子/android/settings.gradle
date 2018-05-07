@@ -1,0 +1,28 @@
+rootProject.name = 'RNExample'
+include ':jcore-react-native'
+project(':jcore-react-native').projectDir = new File(rootProject.projectDir, '../node_modules/jcore-react-native/android')
+
+include ':jpush-react-native'
+project(':jpush-react-native').projectDir = new File(rootProject.projectDir, '../node_modules/jpush-react-native/android')
+
+include ':react-native-app-upgrade', ':umeng'
+project(':react-native-app-upgrade').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-app-upgrade/android')
+include ':react-native-puti-pay'
+project(':react-native-puti-pay').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-puti-pay/android')
+
+include ':react-native-smart-barcode', ':customlib'
+project(':react-native-smart-barcode').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-smart-barcode/android')
+include ':react-native-code-push'
+project(':react-native-code-push').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-code-push/android/app')
+include ':react-native-svg'
+project(':react-native-svg').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-svg/android')
+include ':react-native-device-info'
+project(':react-native-device-info').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-device-info/android')
+include ':react-native-http-cache'
+project(':react-native-http-cache').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-http-cache/android')
+include ':react-native-splash-screen'
+project(':react-native-splash-screen').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-splash-screen/android')
+include ':react-native-spinkit'
+project(':react-native-spinkit').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-spinkit/android')
+
+include ':app'
