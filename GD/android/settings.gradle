@@ -1,0 +1,11 @@
+rootProject.name = 'GD'
+include ':react-native-code-push'
+project(':react-native-code-push').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-code-push/android/app')
+include ':react-native-blur'
+project(':react-native-blur').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-blur/android')
+include ':react-native-puti-pay'
+project(':react-native-puti-pay').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-puti-pay/android')
+include ':react-native-image-picker'
+project(':react-native-image-picker').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-image-picker/android')
+
+include ':app'
