@@ -458,5 +458,5 @@ console.log('responseData',responseData);
 }
 }
 =================
- 
+ export default withNavigation(CustomTabBar); //导出时用 withNavigation 包装
 
