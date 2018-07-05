@@ -34,7 +34,8 @@ start() {
            this.props.navigation.dispatch(resetAction)
        }
 
-//跳转穿参数  返回回调传值      获取传值的方法：navigation.state.params.title,//获取上个页面转来的值     //this.props.navigation.state.params.xxx
+//跳转传参数  返回回调传值      获取传值的方法：navigation.state.params.title,//获取上个页面转来的值     //this.props.navigation.state.params.xxx//取值
+
  this.props.navigation.navigate('MsgPopPage',{
              title:item.title,
              callback: (data)=>{
@@ -42,8 +43,49 @@ start() {
              }
          })
 
+this.props.navigation.goBack(); // 回退到上一个页面
+this.props.navigation.goBack(null); // 回退到任意一个页面
+this.props.navigation.goBack('Home'); // 回退到Home页面
+
+ 
+<!--动画-->
+state = {
+fadeAnim: new Animated.Value(0),  // Initial value for opacity: 0
+}
+Animated.timing(                  // Animate over time
+this.state.fadeAnim,            // The animated value to drive
+{
+toValue: 1,                   // Animate to opacity: 1 (opaque)
+duration: 10000,              // Make it take a while
+}
+).start();                        // Starts the animation
 
 
+<!--Animated.timing(-->
+<!--this.state.xPosition,-->
+<!--{-->
+<!--toValue: 100,-->
+<!--easing: Easing.back,-->
+<!--duration: 2000,-->
+<!--}                              -->
+<!--).start()-->
+
+
+render() {
+let { fadeAnim } = this.state;
+
+return (
+<Animated.View                 // Special animatable View
+style={{
+...this.props.style,
+opacity: fadeAnim,         // Bind opacity to animated value
+}}
+>
+{this.props.children}
+</Animated.View>
+);
+}
+<!--动画-->
 
 //组件穿参数
 export default MenuItem = ({
@@ -99,6 +141,74 @@ itemPush(title){
 <DetailCell image={data.image} title={data.title} subtitle={data.subtitle} key={data.title}
                                            onPress={this.itemPush}/>
 
+
+
+////取数据
+ componentWillMount() {
+const {params} = this.props.navigation.state;
+var projectid =params.projectid;
+console.log("projectid:"+projectid);
+}
+
+
+<!--快速实现圆角+阴影效果-->
+<!--shadowColor: '#ccc',-->
+<!--shadowOffset: {width: 2, height: 2,},-->
+<!--shadowOpacity: 0.5,-->
+<!--shadowRadius: 10,-->
+<!--backgroundColor: Color.white,-->
+<!--borderWidth: 0,-->
+<!--borderRadius: 5,-->
+<!--borderColor: 'rgba(0,0,0,0.1)',-->
+<!--padding: Size.public_margin,-->
+<!--elevation: 3,-->
+<!--overflow: 'hidden',-->
+
+ 
+ //ScrollView 刷新
+<!-- <ScrollView style={styles.scrollview_container}-->
+<!-- showsVerticalScrollIndicator={false}-->
+<!-- refreshControl={this._refreshControlView()}>-->
+<!--  </ScrollView>-->
+<!--  _refreshControlView() {-->
+<!--  return (-->
+<!--  <RefreshControl-->
+<!--  refreshing={this.state.refreshing}-->
+<!--  onRefresh={() => this._refresh()}-->
+<!--  colors={['#ff0000', '#00ff00', '#0000ff']}-->
+<!--  />-->
+<!--  )}-->
+<!-- -->
+<!-- _refresh() {-->
+<!--    this.setState({-->
+<!--    refreshing: true-->
+<!--    })-->
+<!--    this.requestData()-->
+<!--  }-->
+ 
+<!--展开收起 -->
+ {/*简介*/}
+ <View style={{ padding:16,}}>
+ <Text style={{fontSize:14,
+ color:GrayColor,
+ marginBottom:10}}>简介</Text>
+ <Text style={{fontSize:14,
+ color:GrayBlackColor,
+ lineHeight:24}} numberOfLines={this.state.isShowAll?99:4}>
+ {this.state.movieData.summary}
+ </Text>
+ {this.state.isShowAll==false?<View style={{position:'absolute',
+ bottom:16,
+ right:16,}}>
+ <Text
+ onPress={()=>{this.setState({isShowAll:true})}}
+ style={ {color:this.state.MainColor,fontSize:14,
+ lineHeight:24,
+ paddingLeft:10,
+ backgroundColor:MainBg}}>展开</Text>
+ </View>:null}
+ </View>
+<!---->
 
 
 //数据存储
@@ -268,30 +378,11 @@ refreshControl={this._refreshControlView()}>
 
 /////////////////////////////////////////////
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+ 使用mobx  需要添加两个配置库
+ npm install --save-dev babel-plugin-transform-decorators-legacy
+ npm install babel-preset-react-native-stage-0 --save-dev
+ 再.babelrc  配置 "plugins": ["transform-decorators-legacy"]
+  
 
     第三方库
    "@remobile/react-native-toast": "^1.0.7", // 提示框
@@ -323,4 +414,49 @@ refreshControl={this._refreshControlView()}>
         "react-redux": "^5.0.6",
         "react-router": "^4.2.0",
         "react_native_countdowntimer": "^1.0.5", // 秒杀倒计时
-        "redux": "^3.7.2"                                         
+        "redux": "^3.7.2"          
+        
+<!-- 骨架屏使用      https://github.com/mfrachet/rn-placeholder-->
+
+
+6.react-native 实现渐变色背景
+需要借助插件react-native-linear-gradient插件
+<!--下载插件:-->
+<!--npm install react-native-linear-gradient --save-->
+<!--然后导入页面:-->
+<!--import LinearGradient from 'react-native-linear-gradient';-->
+<!--最后使用:-->
+<!--<LinearGradient colors={['#41027b', '#0577b8']} style={styles.container}>-->
+<!--</LinearGradient>-->
+ 
+=============ReactNative实现图片上传功能=========
+/**
+2、创建一个file对象，uri是什么？如下示例：
+
+android:  file:///storage/emulated/0/Pictures/eb645893-4c00-44a3-a9b4-a2116e955f7c.jpg
+**/
+uploadImage(){
+let formData = new FormData();
+let file = {uri: uri, type: 'multipart/form-data', name: 'a.jpg'};
+
+formData.append("images",file);
+
+fetch(url,{
+method:'POST',
+headers:{
+'Content-Type':'multipart/form-data',
+},
+body:formData,
+})
+.then((response) => response.text() )
+.then((responseData)=>{
+
+console.log('responseData',responseData);
+})
+.catch((error)=>{console.error('error',error)});
+
+}
+}
+=================
+ 
+
