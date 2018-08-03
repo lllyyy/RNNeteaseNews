@@ -1,5 +1,52 @@
 
+////////////////JS类型转换////////////////
+1.isNaN //判断是不是NaN 类型
+2.parseFloat()//字符串转浮点值
+3.parseInt()//转换为整数值
+4.toFixed(2)//保留两位小数
 
+===2.字符串的操作========
+var sttr1 = new String("Hello World");
+
+console .log(sttr1.charAt(0)) ; //返回指定字符，下标从0开始
+console .log(sttr1.charCodeAt(0)) ;//返回特定位置的字符编码值
+console .log(sttr1.concat("!")) ;//在字符串后进行拼接 返回拼接后的字符串
+console .log(sttr1.indexOf('l')) ;//获取某个字符串的索引 从前往后找 如果没有返回-1
+console .log(sttr1.lastIndexOf('l')) ;//获取某个字符串的索引 从后往前找 如果没有返回-1
+console .log(sttr1.localeCompare("Allo Word")) ;//进行字符串的比较 原字符串小于参数字符串返回小于0的数  大于则返回大于0的数  相等返回0
+console .log(sttr1.replace(/He/,"AI")) ;//使用正则匹配字符串 将匹配的字符串进行替换
+console .log(sttr1.search(/He/)) ;//使用正则查找字符串的位置 ，如果没有返回-1
+console .log(sttr1.slice(0,3)) ;//截取范围内的字符串
+console .log(sttr1.split("l",10)) ;//分割字符串 返回数组，其中第一个参数未进行分割的字符串，第二个参数返回最多子串个数
+console .log(sttr1.substr(0,2)) ;//截取字符串 第一个参数为开始位置  第二个参数为截取长度
+console .log(sttr1.substring(1,2)) ;//截取下标间的子串 "e"
+console .log(sttr1.trim()) ;//去掉字符串开头和结束空格
+
+// ***** //对于字符串截取方法 slice 如果传入的参数为负数，使用字符串长度减去这个负数的绝对值未最终参数 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//调用安装模拟器调试
+adb shell input keyevent 82
+////////react native java SDK 模拟器配置
+https://www.jianshu.com/p/cb8bbb499841
+////////////////
 
  Image
 
@@ -459,4 +506,34 @@ console.log('responseData',responseData);
 }
 =================
  export default withNavigation(CustomTabBar); //导出时用 withNavigation 包装
+ 
+ //////////////////////////属性指定类型//////////////////
+ static  propTypes ={
+        title:PropTypes.array,//指定数组
+        textStyle: Text.propTypes.style,//指定的样式
+        tabStyle: ViewPropTypes.style,//指定样式
+         viewElet:PropTypes.element,指定元素
+         viewObjct:PropTypes.instanceOf(Row),//指定类的实例
+          onStarChange: PropTypes.func,//指定的方法
+         data:PropTypes.object.isRequired,//指定的值必须实现
+         title: PropTypes.oneOfType([PropTypes.element, PropTypes.string, PropTypes.number]),//属性可以指定类型中的任意一个值
+ }
+ //////////////////////////弹出框//////////////////
+ Alert.alert('弹出框','弹出框提示语',[
+ {text:'取消'},
+ {text:'我知道了',onPress:this.option}
+ ])
+/////////////////////////////////////
+ removeClippedSubviews={true} //布尔类型 通常在scrollView组件或者ListView组件中使用 要此属性生效 必须overflow；hidden 设置为hidden
+////////////////////////////////////////////
 
+////////////////Android支持加载webp格式的图片和gif的配置 (项目u目录下的android/app/build.gradle文件下 dependencies)
+compile 'com.facebook.fresco:animated-gif:0.11.0'
+compile 'com.facebook.fresco:webpsupport:0.11.0'
+compile 'com.facebook.fresco:animated-webp:0.11.0'
+///////////////////////////////////
+  const jsonValue = JSON.parse(value);转化未json对象
+  JSON.stringify(jsonValue)//转化json对象字符串
+
+
+  const jsonValue = JSON.parse(value);
