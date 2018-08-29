@@ -7,6 +7,7 @@ import Color from "../app/Color";
 
 /**
  * 单选按钮
+ *   <Checkboc title={'AAAAAA'} checkedIcon={} checked={this.state.selectIndex === index}/>
  */
 
 

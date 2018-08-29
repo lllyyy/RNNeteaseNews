@@ -156,14 +156,19 @@ export default class UserInfoScreen extends BaseScreen {
                 console.log('User tapped custom button: ', response.customButton);
             }
             else {
-               // let source = { uri: response.uri };
-              //  console.log('sourcesourcesource ', source);
-                // You can also display the image using data:
-                 let source = { uri: 'data:image/jpeg;base64,' + response.data };
+                let source;  // 保存选中的图片
+                source = {uri: 'data:image/jpeg;base64,' + res.data};
+
+                if (Platform.OS === 'android') {
+                    source = { uri: res.uri };
+                } else {
+                    source = { uri: res.uri.replace('file://','') };
+                }
 
                 this.setState({
                     avatarSource: source
                 });
+
             }
         });
     }

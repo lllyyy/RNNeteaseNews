@@ -19,6 +19,8 @@ export default class DialogBase extends PureComponent{
     }
 
     _renderView(){
+
+
         return(
             <Overlay.PopView
                 style={{alignItems: 'center', justifyContent: 'center'}}

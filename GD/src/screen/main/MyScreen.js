@@ -19,6 +19,7 @@ import AuthApi from "../../api/AuthApi";
 import ShareApi from "../../share/ShareApi";
 import SharePlatform from '../../share/SharePlatform'
 import DeviceStorage from "../../utils/DeviceStorage";
+import HeaderView from "../../view/HeaderView";
 
 export default class MyScreen extends BaseScreen {
 
@@ -105,6 +106,9 @@ export default class MyScreen extends BaseScreen {
                     {this._renderItem(Images.My.service, '服务中心')}
                     {this._renderItem(Images.Main.homeTabClick, '下载饿了么APP')}
                 </Column>
+                <HeaderView endTitle={"先事情"}  timeTitle={"sjdfsDSF"} onPress={()=>{
+                    alert("AAA")
+                }}/>
             </ScrollView>
         );
     }

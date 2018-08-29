@@ -1,6 +1,9 @@
 'use strict';
-import React from 'react';
-import {Text} from 'react-native';
+import React,{Component} from 'react';
+import {
+    Text,
+    View
+} from 'react-native';
 import PropTypes from "prop-types";
 import Color from "../app/Color";
 import {px2sp} from "../utils/ScreenUtil";

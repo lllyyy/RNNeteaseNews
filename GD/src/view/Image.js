@@ -14,9 +14,21 @@ export default class ImageView extends Image {
     constructor(props) {
         super(props);
         this.baseUrl = 'http://cangdu.org:8001/img/'
-    }
 
-    static propTypes = {
+    }
+    // state = {
+    //     width: 0,
+    //     height: 0
+    // }
+
+    // componentDidMount () {
+    //     Image.getSize(this.props.source, (width, height) => {
+    //      let h = 330 * height / width
+    //      this.setState({height: h})
+    //   })
+    //  }
+
+static propTypes = {
         ...Image.propTypes,
         needBaseUrl: PropTypes.bool,
         source: PropTypes.oneOfType([
@@ -39,8 +51,30 @@ export default class ImageView extends Image {
 
             console.log(source)
         }
+
+        // styles = {width: 330, height: this.state.height}
+
         this.props = {source, ...others};
 
         return super.render();
     }
 }
+
+// state = {
+//     width: 0,
+//     height: 0
+// }
+//
+// componentDidMount () {
+//     Image.getSize(this.props.uri, (width, height) => {
+//         let h = 330 * height / width
+//         this.setState({height: h})
+//     })
+// }
+//
+// render () {
+//     return (
+//         <Image source={{uri: this.props.uri}} style={[{width: 330, height: this.state.height}, this.props.style]} />
+//     )
+// }
+// }

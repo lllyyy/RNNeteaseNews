@@ -71,7 +71,7 @@ export default class AddressScreen extends BaseScreen {
                  keyExtractor={(item, index) => index + ''}
                  ItemSeparatorComponent={() => <Divider style={{height:px2dp(20)}}/>}
                  contentContainerStyle={[{flex: 1}, this._contentStyle()]}//屏幕居中
-                 ListEmptyComponent={() =><EmptyView/>}
+                 ListEmptyComponent={() =><EmptyView  />}
              />
         );
     }

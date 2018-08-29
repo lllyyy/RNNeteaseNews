@@ -15,6 +15,7 @@ export default class DeviceStorage {
     static get(key) {
         return AsyncStorage.getItem(key).then((value) => {
             const jsonValue = JSON.parse(value);
+
             return jsonValue;
         });
     }
@@ -64,6 +65,7 @@ export default class DeviceStorage {
     setjson({key, val}) {
         return AsyncStorage.setItem(key, JSON.stringify(val))
     }
+
     getjson(key) {
         return AsyncStorage.getItem(key).then(val => {
             return JSON.parse(val)

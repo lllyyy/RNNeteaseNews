@@ -8,6 +8,7 @@ import {
     TouchableOpacity
 } from 'react-native';
 import PropTypes from 'prop-types';
+import Row from "./Row";
 
 export default class TabBar extends Component{
 
@@ -21,6 +22,7 @@ export default class TabBar extends Component{
         textStyle: Text.propTypes.style,
         tabStyle: ViewPropTypes.style,
         underlineStyle: ViewPropTypes.style,
+
     };
 
     static defaultProps = {

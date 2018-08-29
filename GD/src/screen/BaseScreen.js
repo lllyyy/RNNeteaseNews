@@ -33,7 +33,6 @@ export default class BaseScreen extends Component {
         this.goBackVisible = true; // 默认显示返回按钮
         this.goBackColor = null; //返回按钮颜色
 
-
         // 初始状态
         this.state = {
             netErrorVisible: false,
@@ -93,10 +92,9 @@ export default class BaseScreen extends Component {
                 {/*渲染的页面*/}
 
                 <VisibleView visible={!this.state.netErrorVisible}>
-                        {this.placeholderView}
+                        {/*{this.placeholderView}*/}
                         {this.renderView()}
                     </VisibleView>
-
                 <SafeAreaView style={{backgroundColor: Color.white}}/>
             </View>
         )
@@ -135,7 +133,7 @@ export default class BaseScreen extends Component {
                         justifyContent: 'center',
                         alignItems: 'center',
                         resizeMode: 'stretch'}}
-                           source={Images.Common.goBack}/>
+                        source={Images.Common.goBack}/>
                 </View>
             </TouchableOpacity>
         )

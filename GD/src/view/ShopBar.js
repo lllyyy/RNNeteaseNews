@@ -15,6 +15,9 @@ import Column from "./Column";
 import {Button} from 'teaset'
 import Image from './Image'
 import Images from "../app/Images";
+import {withNavigation} from 'react-navigation'
+
+
 
 type Props ={
     cartElement:Function
@@ -90,6 +93,7 @@ export default class ShopBar extends Component<Props> {
           )
     }
 }
+
 
 const styles = StyleSheet.create({
     container: {

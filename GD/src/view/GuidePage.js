@@ -5,6 +5,7 @@ import {
     View,
     Text,
     StatusBar,
+    Image,
     StyleSheet
 } from 'react-native';
 import {Carousel, Button} from 'teaset'
@@ -13,6 +14,7 @@ import {action, observable} from 'mobx'
 import Color from "../app/Color";
 import {screenH, screenW} from "../utils/ScreenUtil";
 import NavigationUtil from "../utils/NavigationUtil";
+import Images from "../app/Images";
 
 /**
  * 引导页
@@ -25,7 +27,7 @@ export default class GuidePage extends Component {
     };
 
     //引导页数据,替换成项目图片
-    list = ['指导页面1', '指导页面2', '指导页面3'];
+    list = [Images.GuidePage.guide, Images.GuidePage.guide, Images.GuidePage.guide];
 
     @observable isShow = false;
 
@@ -53,7 +55,7 @@ export default class GuidePage extends Component {
                     onChange={(index, total) => {
                         this.setShow(index === total - 1);
                     }}>
-                    {this.list.map(item => <Text style={{fontSize: 30}} key={item}>{item}</Text>)}
+                    {this.list.map(item => <Image source={item}  style={{width:screenW, height:screenH}} key={item}/>)}
                 </Carousel>
                 {this.isShow ? <Button
                     style={{
@@ -74,6 +76,7 @@ export default class GuidePage extends Component {
             </View>
         );
     }
+
 }
 
 const styles = StyleSheet.create({

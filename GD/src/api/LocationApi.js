@@ -12,6 +12,7 @@ export default class LocationApi{
         return HttpUtils.get('/v1/cities/',{'type': 'guess'})
     }
 
+
     /**
      * 获取首页热门城市
      */
@@ -25,6 +26,7 @@ export default class LocationApi{
     static fetchAllCtiy(){
         return HttpUtils.get('/v1/cities/',{'type': 'group'})
     }
+
 
     /**
      * 获取当前所在城市

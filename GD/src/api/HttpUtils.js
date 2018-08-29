@@ -1,6 +1,7 @@
 import queryString from 'query-string'
 import {Toast} from 'teaset'
 let baseUrl = 'http://cangdu.org:8001';
+
 import {NetInfo, ToastAndroid} from 'react-native'
 /**
  * 让fetch也可以timeout
@@ -157,3 +158,4 @@ export default class HttpUtils {
 //     }).catch( err=>{
 //     //请求失败
 // })
+

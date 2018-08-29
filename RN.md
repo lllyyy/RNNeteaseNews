@@ -24,24 +24,7 @@ console .log(sttr1.trim()) ;//去掉字符串开头和结束空格
 
 // ***** //对于字符串截取方法 slice 如果传入的参数为负数，使用字符串长度减去这个负数的绝对值未最终参数 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+ 
 //调用安装模拟器调试
 adb shell input keyevent 82
 ////////react native java SDK 模拟器配置
@@ -537,3 +520,10 @@ compile 'com.facebook.fresco:animated-webp:0.11.0'
 
 
   const jsonValue = JSON.parse(value);
+  
+  ////////////// CodePush///////////////////////
+  code-push release-react HelloRN android  --t 1.0.0 --dev false --d Staging --des "这是第二个更新包" --m true
+  
+  CodePush默认是更新Staging 环境的，如果发布生产环境的更新包，需要指定--d参数：--d Production，如果发布的是强制更新包，需要加上 --m true强制更新
+  
+ 

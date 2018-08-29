@@ -69,6 +69,7 @@ export default class PayOnLineScreen extends BaseScreen {
                         <Image source={img} style={{...wh(80),marginRight:px2dp(15)}}/>
                         <Text text={label}/>
                     </Row>
+
                     <Checkboc disabled checked={this.state.selectIndex === index}/>
                 </Row>
             </TouchableOpacity>

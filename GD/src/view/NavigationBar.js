@@ -7,7 +7,9 @@ import {
     View,
     Image,
     Platform,
-    StatusBar, Text, SafeAreaView,
+    StatusBar,
+    Text,
+    SafeAreaView,
 } from 'react-native';
 import Color from "../app/Color";
 import {px2dp, px2sp} from "../utils/ScreenUtil";
@@ -29,6 +31,7 @@ export default class NavigationBar extends PureComponent<Props> {
         titleColor: Color.black,
         dividerVisible: false
     };
+
 
     // 构造
     constructor(props) {
@@ -58,7 +61,7 @@ export default class NavigationBar extends PureComponent<Props> {
                             width: '100%',
                             height: this.NAVIGATION_BAR_HEIGHT
                         }}
-                               source={this.props.navBarImage}/>
+                           source={this.props.navBarImage}/>
                         :
                         <View style={{
                             width: '100%',

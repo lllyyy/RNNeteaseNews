@@ -1,0 +1,103 @@
+
+
+/****React-Native子组件修改父组件的几种方式，兄弟组件状态修改(转载)*****/http://www.jianshu.com/p/c6991a241b4f
+1.//DeviceEventEmitter传值使用
+      _postMsgByListener=()=>{
+          DeviceEventEmitter.emit('Msg','此消息来自于子组件，DeviceEventEmitter父组件进行修改和状态变化');
+
+      }
+   //父组件调用
+    componentDidMount() {
+           //通知
+           this.msgListener = DeviceEventEmitter.addListener('Msg',(listenerMsg) => {
+               alert(listenerMsg)
+           });
+
+       }
+
+       componentWillUnmount() {
+           //此生命周期内，去掉监听
+           this.msgListener&&this.msgListener.remove();
+       }
+      componentWillUnmount() {
+              //此生命周期内，去掉监听
+              this.msgListener&&this.msgListener.remove();
+          }
+
+//////////////////////////////////////////////////////
+    width: Platform.OS === 'ios' ? 120 : 100,
+    height: Platform.OS === 'ios' ? 120 : 100,
+////////DatePicker//////////////
+npm install react-native-datepicker --save
+
+<DatePicker
+          style={{width: 200}}
+          date={this.state.datetime1}
+          mode="datetime"
+          format="YYYY-MM-DD HH:mm"
+          confirmBtnText="确定"
+          cancelBtnText="取消"
+          customStyles={{
+            dateIcon: {
+              position: 'absolute',
+              left: 0,
+              top: 4,
+              marginLeft: 0
+            },
+            dateInput: {
+              marginLeft: 36
+            }
+          }}
+          minuteInterval={10}
+          onDateChange={(datetime) => {this.setState({datetime1: datetime});}}
+        />
+
+
+
+date：设置初始显示的日期
+mode：显示的模式，date,datetime,time
+format：设置日期格式，默认为'YYYY-MM-DD'
+confirmBtnText：确定按钮的显示名称
+cancelBtnText：取消按钮的显示名称
+minDate：显示的最小日期
+maxDate：显示的最大日期
+duration：时间间隔
+onDateChange：日期变化时触发的事件
+placeholder：占位符
+
+
+/////////安卓打包生成APK/////////////
+https://blog.csdn.net/u011272795/article/details/77161942
+//////////////////////手势响应/////////////////////
+onStartShouldSetPanResponder: (evt, gestureState) => true, ／／开启手势响应
+onMoveShouldSetPanResponder: (evt, gestureState) => true,  ／／开启移动手势响应
+
+onPanResponderGrant: (evt, gestureState) => {              ／／手指触碰屏幕那一刻触发
+
+},
+onPanResponderMove: (evt, gestureState) => {               ／／手指在屏幕上移动触发
+
+},
+onPanResponderTerminationRequest: (evt, gestureState) => true,   ／／当有其他不同手势出现，响应是否中止当前的手势
+onPanResponderRelease: (evt, gestureState) => {           ／／手指离开屏幕触发
+
+},
+onPanResponderTerminate: (evt, gestureState) => {         ／／当前手势中止触发
+
+},
+////////////////////////////////////
+underlineColorAndroid="transparent"
+
+
+ //求出偏移量
+ let offsetX = e.nativeEvent.contentOffset.x;
+
+//升级第三方库
+1.首先使用npm outdated命令查看当前有哪些组件或者第三方库版本有版本更新
+2.然后在package.json文件里面找到jshare-react-native，修改版本号至1.1.5。
+3.npm update jshare-react-native
+
+///////////////Image//////////////
+1）Image 组件在 Android 上潜在的内存泄漏 Bug
+
+在安卓中，加载一张尺寸远大于容器的图片，内存会突然猛涨，在这张图上下滑动，程序就直接因为内存不足而崩溃了如何解决呢？其实办法也很简单，只需要设置 Image 组件的 resizeMothod 属性为 resize 即可，

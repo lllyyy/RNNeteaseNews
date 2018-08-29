@@ -10,8 +10,9 @@ import {
     Dimensions,
     Platform,
 } from 'react-native';
-import {Toast} from 'teaset'
+import { Toast } from 'teaset'
 import XPay from 'react-native-puti-pay'
+
 export let screenW = Dimensions.get('window').width;
 export let screenH = Dimensions.get('window').height;
 const fontScale = PixelRatio.getFontScale();
@@ -42,6 +43,17 @@ export function px2sp(size: number) {
     return size / DEFAULT_DENSITY;
 }
 
+// export default barContentPad = {
+//
+//     barContentPad: (Platform.OS === 'android' ? 0 : (isIphoneX() ? 42 : 20)),
+//     bottomPadding: isIphoneX() ? 18 : 0,
+//     // 常用颜色
+//     primaryColor: '#EE0000',
+//     lightGray: '#f5f5f5',
+//     darkGray: '#e5e5e5',
+//     lightBlack: '#333333'
+// };
+
 /**
  * 屏幕适配,缩放size
  * @param size
@@ -63,8 +75,8 @@ export function px2dp(size: number) {
  */
 export function wh(width: number, height: number = width) {
     return {
-        width: px2sp(width),
-        height: px2sp(height)
+        width : px2sp(width),
+        height : px2sp(height)
     }
 }
 
@@ -76,8 +88,8 @@ export function wh(width: number, height: number = width) {
  */
 export function paddingTB(top: number, bottom: number = top) {
     return {
-        paddingTop: px2sp(top),
-        paddingBottom: px2sp(bottom)
+        paddingTop : px2sp(top),
+        paddingBottom : px2sp(bottom)
     }
 }
 
@@ -89,8 +101,8 @@ export function paddingTB(top: number, bottom: number = top) {
  */
 export function paddingLR(left: number, right: number = left) {
     return {
-        paddingLeft: px2sp(left),
-        paddingRight: px2sp(right)
+        paddingLeft : px2sp(left),
+        paddingRight : px2sp(right)
     }
 }
 
@@ -102,8 +114,8 @@ export function paddingLR(left: number, right: number = left) {
  */
 export function marginTB(top: number, bottom: number = top) {
     return {
-        marginTop: px2sp(top),
-        marginBottom: px2sp(bottom)
+        marginTop : px2sp(top),
+        marginBottom : px2sp(bottom)
     }
 }
 
@@ -115,8 +127,8 @@ export function marginTB(top: number, bottom: number = top) {
  */
 export function marginLR(left: number, right: number = left) {
     return {
-        marginLeft: px2sp(left),
-        marginRight: px2sp(right)
+        marginLeft : px2sp(left),
+        marginRight : px2sp(right)
     }
 }
 
@@ -128,8 +140,8 @@ export function marginLR(left: number, right: number = left) {
  */
 export function borderWidthTB(top: number, bottom: number = top) {
     return {
-        borderTopWidth: px2dp(top),
-        borderBottomWidth: px2dp(bottom)
+        borderTopWidth : px2dp(top),
+        borderBottomWidth : px2dp(bottom)
     }
 }
 
@@ -141,8 +153,8 @@ export function borderWidthTB(top: number, bottom: number = top) {
  */
 export function borderWidthLR(left: number, right: number = left) {
     return {
-        borderLeftWidth: px2dp(left),
-        borderRightWidth: px2dp(right)
+        borderLeftWidth : px2dp(left),
+        borderRightWidth : px2dp(right)
     }
 }
 
@@ -171,7 +183,9 @@ export function ifIphoneX(iphoneXStyle, iosStyle = {}, androidStyle) {
     } else if (Platform.OS === 'ios') {
         return iosStyle
     } else {
-        if (androidStyle) return androidStyle;
+        if (androidStyle) {
+            return androidStyle;
+        }
         return iosStyle
     }
 }
@@ -223,31 +237,31 @@ export function parseTime(time) {
  */
 
 
-export function  wxPay() {
+export function wxPay() {
 
-        // const res =   fetch('http://wxpay.wxutil.com/pub_v2/app/app_pay.php').then((res) =>{
-        //     console.log('支付参数res', res.json());
-        //     const params =  res.json();
-        //     console.log('支付参数', params);
-        //     const {partnerid, noncestr, timestamp, prepayid, sign} = params;
-            XPay.wxPay({
-                    partnerId: '1900006771',
-                    prepayId: 'wx01144703514263564950e0e01706395905',
-                    packageValue: 'Sign=WXPay',
-                    nonceStr: '670d137278e23d14599f654084253094',
-                    timeStamp: '1527835623',
-                    sign: '335362BED4925618D8B3AEA4F7DCAB4B'
-                },
-                res => {
-                    console.log('回调', res);
-                    const {errCode} = res;
-                    if (errCode === 0 || errCode === '0') {
-                        Toast.success('充值成功')
-                    } else {
-                        Toast.fail('充值失败')
-                    }
-                })
-       // });
+    // const res =   fetch('http://wxpay.wxutil.com/pub_v2/app/app_pay.php').then((res) =>{
+    //     console.log('支付参数res', res.json());
+    //     const params =  res.json();
+    //     console.log('支付参数', params);
+    //     const {partnerid, noncestr, timestamp, prepayid, sign} = params;
+    XPay.wxPay({
+            partnerId : '1900006771',
+            prepayId : 'wx01144703514263564950e0e01706395905',
+            packageValue : 'Sign=WXPay',
+            nonceStr : '670d137278e23d14599f654084253094',
+            timeStamp : '1527835623',
+            sign : '335362BED4925618D8B3AEA4F7DCAB4B'
+        },
+        res => {
+            console.log('回调', res);
+            const { errCode } = res;
+            if (errCode === 0 || errCode === '0') {
+                Toast.success('充值成功')
+            } else {
+                Toast.fail('充值失败')
+            }
+        })
+    // });
 
 }
 
@@ -256,10 +270,11 @@ export function  wxPay() {
  */
 
 export function aliPay() {
-    XPay.alipay('app_id=2015052600090779&biz_content=%7B%22timeout_express%22%3A%2230m%22%2C%22product_code%22%3A%22QUICK_MSECURITY_PAY%22%2C%22total_amount%22%3A%220.01%22%2C%22subject%22%3A%221%22%2C%22body%22%3A%22%E6%88%91%E6%98%AF%E6%B5%8B%E8%AF%95%E6%95%B0%E6%8D%AE%22%2C%22out_trade_no%22%3A%22IQJZSRC1YMQB5HU%22%7D&charset=utf-8&format=json&method=alipay.trade.app.pay&notify_url=http%3A%2F%2Fdomain.merchant.com%2Fpayment_notify&sign_type=RSA2&timestamp=2016-08-25%2020%3A26%3A31&version=1.0&sign=cYmuUnKi5QdBsoZEAbMXVMmRWjsuUj%2By48A2DvWAVVBuYkiBj13CFDHu2vZQvmOfkjE0YqCUQE04kqm9Xg3tIX8tPeIGIFtsIyp%2FM45w1ZsDOiduBbduGfRo1XRsvAyVAv2hCrBLLrDI5Vi7uZZ77Lo5J0PpUUWwyQGt0M4cj8g%3D',
+    XPay.alipay(
+        'app_id=2015052600090779&biz_content=%7B%22timeout_express%22%3A%2230m%22%2C%22product_code%22%3A%22QUICK_MSECURITY_PAY%22%2C%22total_amount%22%3A%220.01%22%2C%22subject%22%3A%221%22%2C%22body%22%3A%22%E6%88%91%E6%98%AF%E6%B5%8B%E8%AF%95%E6%95%B0%E6%8D%AE%22%2C%22out_trade_no%22%3A%22IQJZSRC1YMQB5HU%22%7D&charset=utf-8&format=json&method=alipay.trade.app.pay&notify_url=http%3A%2F%2Fdomain.merchant.com%2Fpayment_notify&sign_type=RSA2&timestamp=2016-08-25%2020%3A26%3A31&version=1.0&sign=cYmuUnKi5QdBsoZEAbMXVMmRWjsuUj%2By48A2DvWAVVBuYkiBj13CFDHu2vZQvmOfkjE0YqCUQE04kqm9Xg3tIX8tPeIGIFtsIyp%2FM45w1ZsDOiduBbduGfRo1XRsvAyVAv2hCrBLLrDI5Vi7uZZ77Lo5J0PpUUWwyQGt0M4cj8g%3D',
         res => {
             console.log('回调', res);
-            const {result, memo, resultStatus} = res;
+            const { result, memo, resultStatus } = res;
             if (resultStatus === '9000') {
                 Toast.success('充值成功')
             } else {
@@ -287,35 +302,12 @@ export default callOnceInInterval = (functionTobeCalled, interval = 600) => {
     }
 };
 
-// /时间处理
-// Date.prototype.format = function (format) {
-//     let date = {
-//         "M+": this.getMonth() + 1,
-//         "d+": this.getDate(),
-//         "h+": this.getHours(),
-//         "m+": this.getMinutes(),
-//         "s+": this.getSeconds(),
-//         "q+": Math.floor((this.getMonth() + 3) / 3),
-//         "S+": this.getMilliseconds()
-//     };
-//     if (/(y+)/i.test(format)) {
-//         format = format.replace(RegExp.$1, (this.getFullYear() + '').substr(4 - RegExp.$1.length));
-//     }
-//     for (let k in date) {
-//         if (new RegExp("(" + k + ")").test(format)) {
-//             format = format.replace(RegExp.$1, RegExp.$1.length === 1
-//                 ? date[k] : ("00" + date[k]).substr(("" + date[k]).length));
-//         }
-//     }
-//     return format;
-// };
-
 //获取时间差 current:1497235409744 当前时间  start:1497235419744 开始时间
 export function getRemainingime(current: Number, start: Number) {
 
     let time = start - current;
     if (time < 0) {
-        return ["0", "0", "0", "0", "0", "0"];
+        return [ "0", "0", "0", "0", "0", "0" ];
     }
     let year = Math.floor(time / (365 * 30 * 24 * 3600 * 1000));//年
 
@@ -329,7 +321,7 @@ export function getRemainingime(current: Number, start: Number) {
     let temp3 = temp2 % (60 * 1000);
     let seconds = Math.round(temp3 / 1000);//秒
 
-    let strs = [year, toNormal(month), toNormal(days), toNormal(hours), toNormal(minutes), toNormal(seconds)];
+    let strs = [ year, toNormal(month), toNormal(days), toNormal(hours), toNormal(minutes), toNormal(seconds) ];
     return strs;//["0", "0", "2", "7", "33", "30"]0年0月2日 7时33分30秒
 }
 
@@ -337,7 +329,7 @@ export function getRemainingime(current: Number, start: Number) {
 export function getRemainingimeDistance(distance: Number) {
     let time = distance * 1000;
     if (time < 0) {
-        return ["0", "0", "0", "0", "0", "0"];
+        return [ "0", "0", "0", "0", "0", "0" ];
     }
 
     let year = Math.floor(time / (365 * 30 * 24 * 3600 * 1000));//年
@@ -352,7 +344,7 @@ export function getRemainingimeDistance(distance: Number) {
     let temp3 = temp2 % (60 * 1000);
     let seconds = Math.round(temp3 / 1000);//秒
 
-    let strs = [year, toNormal(month), toNormal(days), toNormal(hours), toNormal(minutes), toNormal(seconds)];
+    let strs = [ year, toNormal(month), toNormal(days), toNormal(hours), toNormal(minutes), toNormal(seconds) ];
     // strs.splice(0, 1, String(Number(strs[0]) - 1970));//年
     // strs.splice(1, 1, String(Number(strs[1]) - 1));
     // strs.splice(2, 1, (Number(strs[2]) - 1) < 10 ? '0' + (Number(strs[2]) - 1) : String(Number(strs[2]) - 1));
@@ -394,7 +386,7 @@ export function getTaskTime(strDate) {
         return "";
     }
     let dateStr = strDate.trim().split(" ");
-    let strGMT = dateStr[0] + " " + dateStr[1] + " " + dateStr[2] + " " + dateStr[5] + " " + dateStr[3] + " GMT+0800";
+    let strGMT = dateStr[ 0 ] + " " + dateStr[ 1 ] + " " + dateStr[ 2 ] + " " + dateStr[ 5 ] + " " + dateStr[ 3 ] + " GMT+0800";
     let date = new Date(Date.parse(strGMT));
     let y = date.getFullYear();
     let m = date.getMonth() + 1;
@@ -423,9 +415,12 @@ export function getRemainingimeDistance2(distance: Number) {
     }
     let temp3 = temp2 % (60 * 1000);
     let seconds = Math.round(temp3 / 1000);
-    return [hours, minutes];//["0", "0", "2", "7", "33", "30"]0年0月2日 7时33分30秒
+    return [ hours, minutes ];//["0", "0", "2", "7", "33", "30"]0年0月2日 7时33分30秒
 }
 
+export function isEmpty(str) {
+    return str === null || str === '' || str === undefined;
+}
 
 //
 // /
@@ -446,4 +441,78 @@ export function getRemainingimeDistance2(distance: Number) {
 //         return iosStyle
 //     }
 // }
+/**
+ *
+ * @param timestamp  时间戳
+ * @returns {string}
+ */
+export function getFormattedTime(timestamp) {
+    let curTime = Date.parse(new Date()) / 1000;
+    let delta = curTime - timestamp;
+    const hour = 60 * 60;
+    const day = 24 * hour;
+    const month = 30 * day;
+    const year = 12 * month;
+    if (delta < hour) {
+        // 显示多少分钟前
+        let n = parseInt(delta / 60);
+        if (n == 0) {
+            return "刚刚";
+        }
+        return n + '分钟前';
+    } else if (delta >= hour && delta < day) {
+        return parseInt(delta / hour) + '小时前';
+    } else if (delta >= day && delta < month) {
+        return parseInt(delta / day) + '天前';
+    } else if (delta >= month && delta < year) {
+        return parseInt(delta / month) + '个月前';
+    }
+}
+
+/**
+ *
+ * @param date   new Date
+ * @param fmt   "yyyy-MM-dd hh:mm:ss"
+ * @returns {*}
+ */
+export function format(date, fmt) {
+    var o = {
+        "M+" : date.getMonth() + 1,                 //月份
+        "d+" : date.getDate(),                    //日
+        "h+" : date.getHours(),                   //小时
+        "m+" : date.getMinutes(),                 //分
+        "s+" : date.getSeconds(),                 //秒
+        "q+" : Math.floor((date.getMonth() + 3) / 3), //季度
+        "S" : date.getMilliseconds()             //毫秒
+    };
+    if (/(y+)/.test(fmt)) {
+        fmt = fmt.replace(RegExp.$1, (date.getFullYear() + "").substr(4 - RegExp.$1.length));
+    }
+    for (var k in
+        o) {
+        if (new RegExp("(" + k + ")").test(fmt)) {
+            fmt = fmt.replace(RegExp.$1, (RegExp.$1.length == 1) ? (o[ k ]) : (("00" + o[ k ]).substr(("" + o[ k ]).length)));
+        }
+    }
+    return fmt;
+}
+
+/**
+ *
+ * @param timestamp 时间戳
+ * @returns {MM月dd日 hh:mm}
+ */
+//时间 月份
+export function formatChatTime(timestamp) {
+    return format(new Date(timestamp * 1000), 'MM月dd日 hh:mm');
+}
+
+/**
+ *
+ * @returns {number}
+ */
+export function currentTime() {
+    return Date.parse(new Date()) / 1000;
+}
+
 

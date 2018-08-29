@@ -27,6 +27,10 @@ import OrderConfirmScreen from "../screen/shop/OrderConfirmScreen";
 import ChangeRedPacketScreen from "../screen/member/discount/ChangeRedPacketScreen";
 import PhoneMoblie from '../screen/member/auth/PhoneMoblieScreen';
 import GuidePage from '../view/GuidePage';
+import FlotScreen from "../screen/main/FlotScreen";
+import BrandPage from "../screen/main/BrandPage";
+import LocationCity from "../screen/main/LocationCity";
+import NotifPush from "../screen/main/NotifPush";
 
 
 const initial = __DEV__
@@ -62,6 +66,10 @@ const nav = {
     OrderConfirm: {screen: OrderConfirmScreen},
     // VIPDes: {screen: VIPDesScreen},
     ChangeRedPacket: {screen: ChangeRedPacketScreen},
+    Flost:{screen:FlotScreen},
+    BrandPage:{screen:BrandPage},
+    LocationCity:{screen:LocationCity},
+    NotifPush:{screen:NotifPush}
 };
 
 // 注册导航

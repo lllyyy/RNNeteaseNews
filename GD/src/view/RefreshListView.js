@@ -31,7 +31,6 @@ type Props = {
     footerTextStyle?: ViewPropTypes.style,
 
     listRef?: any,
-
     footerRefreshingText?: string,
     footerFailureText?: string,
     footerNoMoreDataText?: string,

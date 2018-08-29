@@ -3,6 +3,8 @@ package com.gd;
 import android.app.Application;
 
 import com.facebook.react.ReactApplication;
+import com.dieam.reactnativepushnotification.ReactNativePushNotificationPackage;
+import com.oblador.vectoricons.VectorIconsPackage;
 import com.microsoft.codepush.react.CodePush;
 import com.cmcewen.blurview.BlurViewPackage;
 import com.puti.paylib.PayReactPackage;
@@ -33,6 +35,9 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
+            new ReactNativePushNotificationPackage(),
+
+            new VectorIconsPackage(),
             new CodePush(null, getApplicationContext(), BuildConfig.DEBUG),
             new BlurViewPackage(),
             new PayReactPackage(),

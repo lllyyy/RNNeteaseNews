@@ -66,7 +66,14 @@ export const Tabs = TabNavigator(
                         normalImage={Images.Main.myTabNormal}
                         selectedImage={Images.Main.myTabClick}
                     />
-                )
+                ),
+                // tabBarOnPress 拦截tab导航的tab点击事件
+                // tabBarOnPress: () => {
+                //     if (!isLogin) {
+                //         navigation.navigate('Login')
+                //     }
+                // }
+
             }),
         },
     },

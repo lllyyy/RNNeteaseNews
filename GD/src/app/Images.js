@@ -1,3 +1,4 @@
+import GuidePage from "../view/GuidePage";
 
 /**
  * 本地图片文件
@@ -53,5 +54,8 @@ export default {
     },
     ServiceCenter:{
         phone:require('../img/icon_phone_green.png'),
+    },
+    GuidePage:{
+        guide:require('../img/2.jpg'),
     },
 }

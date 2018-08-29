@@ -1,4 +1,5 @@
 {
   "name": "GD",
-  "displayName": "GD"
+  "displayName": "GD",
+  "senderID": "YOUR-GCM-ID"
 }
