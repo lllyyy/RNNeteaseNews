@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>tabBarTitle</key>
+		<string>日程表</string>
+		<key>tabBarImageName</key>
+		<string>tabbar_icon_schedule_normal</string>
+		<key>tabBarSelectedImageName</key>
+		<string>tabbar_icon_schedule_selected</string>
+		<key>tabBarController</key>
+		<string>TTMScheduleController</string>
+	</dict>
+	<dict>
+		<key>tabBarTitle</key>
+		<string>订单</string>
+		<key>tabBarImageName</key>
+		<string>tabbar_icon_order_normal</string>
+		<key>tabBarSelectedImageName</key>
+		<string>tabbar_icon_order_selected</string>
+		<key>tabBarController</key>
+		<string>TTMOrderController</string>
+	</dict>
+	<dict>
+		<key>tabBarTitle</key>
+		<string>统计</string>
+		<key>tabBarImageName</key>
+		<string>tabbar_icon_statistics_normal</string>
+		<key>tabBarSelectedImageName</key>
+		<string>tabbar_icon_statistics_selected</string>
+		<key>tabBarController</key>
+		<string>WMPageController</string>
+	</dict>
+	<dict>
+		<key>tabBarTitle</key>
+		<string>会员中心</string>
+		<key>tabBarImageName</key>
+		<string>tabbar_icon_member_normal</string>
+		<key>tabBarSelectedImageName</key>
+		<string>tabbar_icon_member_selected</string>
+		<key>tabBarController</key>
+		<string>TTMMemberCenterController</string>
+	</dict>
+</array>
+</plist>
