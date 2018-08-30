@@ -1,0 +1,26 @@
+{
+  "expo": {
+    "sdkVersion": "27.0.0",
+    "packagerOpts": {
+      "assetExts": ["ttf"]
+    },
+    "orientation": "portrait",
+    "primaryColor": "#8BC34A",
+    "androidStatusBarColor": "#27ae60",
+    "androidStatusBar": {
+      "backgroundColor": "#27ae60",
+      "barStyle": "dark-content"
+    },
+    "icon": "./app/assets/images/app-icon.png",
+    "splash": {
+      "image": "./app/assets/icons/splash.png",
+      "resizeMode": "cover"
+    },
+    "name": "Perfi",
+    "version": "2.0.0",
+    "slug": "apiko-perfi-app",
+    "android": {
+      "package": "com.apiko.perfi"
+    }
+  }
+}
